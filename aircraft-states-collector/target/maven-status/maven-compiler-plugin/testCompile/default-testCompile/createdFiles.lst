@@ -1,7 +1,0 @@
-com/example/aviation/bdd/CucumberSpringConfiguration.class
-com/example/aviation/unit/StateVectorFetcherServiceTest.class
-com/example/aviation/unit/OpenSkyApiClientTest.class
-com/example/aviation/unit/StateVectorSchedulerTest.class
-com/example/aviation/unit/OpenSkyPropertiesTest.class
-com/example/aviation/bdd/CucumberTestRunner.class
-com/example/aviation/bdd/steps/StateVectorFetchSteps.class
