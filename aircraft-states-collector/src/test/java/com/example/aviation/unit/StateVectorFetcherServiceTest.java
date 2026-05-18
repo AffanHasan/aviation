@@ -3,6 +3,7 @@ package com.example.aviation.unit;
 import com.example.aviation.client.OpenSkyApiClient;
 import com.example.aviation.domain.StateVector;
 import com.example.aviation.domain.StateVectorResponse;
+import com.example.aviation.kafka.StateVectorKafkaPublisher;
 import com.example.aviation.service.StateVectorFetcherService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,6 +20,9 @@ class StateVectorFetcherServiceTest {
 
     @Mock
     private OpenSkyApiClient apiClient;
+
+    @Mock
+    private StateVectorKafkaPublisher kafkaPublisher;
 
     @InjectMocks
     private StateVectorFetcherService fetcherService;
@@ -39,6 +43,7 @@ class StateVectorFetcherServiceTest {
 
         // Then
         verify(apiClient).fetchStateVectors();
+        verify(kafkaPublisher).publish(response);
     }
 
     @Test
@@ -52,5 +57,6 @@ class StateVectorFetcherServiceTest {
 
         // Then
         verify(apiClient).fetchStateVectors();
+        verify(kafkaPublisher).publish(response);
     }
 }

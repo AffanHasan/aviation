@@ -6,6 +6,13 @@ opensky:
     read-ms: 30000
 
 spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      acks: all
+      retries: 3
   security:
     oauth2:
       client:
@@ -17,3 +24,7 @@ spring:
         provider:
           opensky:
             token-uri: https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token
+
+aviation:
+  kafka:
+    topic: aircraft.state.vectors

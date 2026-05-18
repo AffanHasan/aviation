@@ -24,3 +24,11 @@ Feature: Fetch aircraft state vectors from OpenSky Network
     And valid OAuth2 credentials are configured
     When the scheduler triggers a fetch
     Then the API request should include a valid Bearer token
+
+  Scenario: Fetched state vectors are published to Kafka as Avro
+    Given the OpenSky API is available
+    And valid OAuth2 credentials are configured
+    And Kafka is running
+    When the scheduler triggers a fetch via the service
+    Then the full state vector response should be published to the "aircraft.state.vectors" topic
+    And the message should be Avro serialized with the response time as the key

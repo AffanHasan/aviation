@@ -2,6 +2,7 @@ package com.example.aviation.bdd.steps;
 
 import com.example.aviation.client.OpenSkyApiClient;
 import com.example.aviation.domain.StateVectorResponse;
+import com.example.aviation.service.StateVectorFetcherService;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -23,6 +24,9 @@ public class StateVectorFetchSteps {
 
     @Autowired
     private OpenSkyApiClient openSkyApiClient;
+
+    @Autowired
+    private StateVectorFetcherService fetcherService;
 
     private StateVectorResponse response;
     private Exception caughtException;
@@ -60,6 +64,15 @@ public class StateVectorFetchSteps {
     public void theSchedulerTriggersAFetch() {
         try {
             response = openSkyApiClient.fetchStateVectors();
+        } catch (Exception e) {
+            caughtException = e;
+        }
+    }
+
+    @When("the scheduler triggers a fetch via the service")
+    public void theSchedulerTriggersAFetchViaTheService() {
+        try {
+            fetcherService.fetchAndProcess();
         } catch (Exception e) {
             caughtException = e;
         }
