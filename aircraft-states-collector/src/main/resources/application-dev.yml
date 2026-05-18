@@ -1,0 +1,6 @@
+opensky:
+  interval-ms: 30000
+
+logging:
+  level:
+    com.example.aviation: DEBUG

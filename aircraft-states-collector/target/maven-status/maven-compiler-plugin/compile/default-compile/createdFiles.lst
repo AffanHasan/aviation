@@ -1,0 +1,13 @@
+com/example/aviation/config/OpenSkyProperties.class
+com/example/aviation/config/OAuth2ClientConfig.class
+com/example/aviation/client/StateVectorConverter.class
+com/example/aviation/config/RestTemplateConfig.class
+com/example/aviation/domain/StateVector.class
+com/example/aviation/service/StateVectorFetcherService.class
+com/example/aviation/client/OpenSkyResponseErrorHandler.class
+com/example/aviation/client/OpenSkyApiException.class
+com/example/aviation/client/OpenSkyApiClient.class
+com/example/aviation/scheduler/StateVectorScheduler.class
+com/example/aviation/config/OpenSkyProperties$Timeouts.class
+com/example/aviation/domain/StateVectorResponse.class
+com/example/aviation/AviationSchedulerApplication.class

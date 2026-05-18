@@ -1,0 +1,7 @@
+/Users/ahasan/engineering-stuff/aviation-project/aircraft-states-collector/src/test/java/com/example/aviation/bdd/CucumberSpringConfiguration.java
+/Users/ahasan/engineering-stuff/aviation-project/aircraft-states-collector/src/test/java/com/example/aviation/bdd/CucumberTestRunner.java
+/Users/ahasan/engineering-stuff/aviation-project/aircraft-states-collector/src/test/java/com/example/aviation/bdd/steps/StateVectorFetchSteps.java
+/Users/ahasan/engineering-stuff/aviation-project/aircraft-states-collector/src/test/java/com/example/aviation/unit/OpenSkyApiClientTest.java
+/Users/ahasan/engineering-stuff/aviation-project/aircraft-states-collector/src/test/java/com/example/aviation/unit/OpenSkyPropertiesTest.java
+/Users/ahasan/engineering-stuff/aviation-project/aircraft-states-collector/src/test/java/com/example/aviation/unit/StateVectorFetcherServiceTest.java
+/Users/ahasan/engineering-stuff/aviation-project/aircraft-states-collector/src/test/java/com/example/aviation/unit/StateVectorSchedulerTest.java

@@ -1,0 +1,19 @@
+opensky:
+  base-url: https://opensky-network.org/api
+  interval-ms: 300000
+  timeouts:
+    connect-ms: 5000
+    read-ms: 30000
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          opensky:
+            client-id: ${OPENSKY_CLIENT_ID:}
+            client-secret: ${OPENSKY_CLIENT_SECRET:}
+            authorization-grant-type: client_credentials
+        provider:
+          opensky:
+            token-uri: https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token
