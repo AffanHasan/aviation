@@ -1,54 +1,45 @@
-# Compiled class files
-*.class
-
-# Log files
-*.log
-logs/
-
-# Package Files
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# Maven
+#Maven
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+.flattened-pom.xml
 
-# IntelliJ IDEA
-.idea/
-*.iws
-*.iml
-*.ipr
-
-# Eclipse / VS Code
-.classpath
+# Eclipse
 .project
+.classpath
 .settings/
-.vscode/
+bin/
+
+# IntelliJ
+.idea
+*.ipr
+*.iml
+*.iws
 
 # NetBeans
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+nb-configuration.xml
 
-# Spring Boot
-spring-boot-*.pid
-spring-boot-*.port
+# Visual Studio Code
+.vscode
+.factorypath
 
-# OS Files
+# OSX
 .DS_Store
-Thumbs.db
 
-# Environment variables
+# Vim
+*.swp
+*.swo
+
+# patch
+*.orig
+*.rej
+
+# Local environment
 .env
-.env.local
 
-# Application-specific
-app.pid
+# Plugin directory
+/.quarkus/cli/plugins/
+# TLS Certificates
+.certs/
