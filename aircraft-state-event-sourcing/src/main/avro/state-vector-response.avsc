@@ -1,0 +1,42 @@
+{
+  "type": "record",
+  "name": "StateVectorResponseAvro",
+  "namespace": "com.example.aviation.avro",
+  "fields": [
+    {"name": "time", "type": "long"},
+    {
+      "name": "states",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "type": "record",
+            "name": "StateVectorAvro",
+            "fields": [
+              {"name": "icao24", "type": "string"},
+              {"name": "callsign", "type": ["null", "string"], "default": null},
+              {"name": "originCountry", "type": "string"},
+              {"name": "timePosition", "type": ["null", "int"], "default": null},
+              {"name": "lastContact", "type": ["null", "int"], "default": null},
+              {"name": "longitude", "type": ["null", "double"], "default": null},
+              {"name": "latitude", "type": ["null", "double"], "default": null},
+              {"name": "baroAltitude", "type": ["null", "double"], "default": null},
+              {"name": "onGround", "type": ["null", "boolean"], "default": null},
+              {"name": "velocity", "type": ["null", "double"], "default": null},
+              {"name": "trueTrack", "type": ["null", "double"], "default": null},
+              {"name": "verticalRate", "type": ["null", "double"], "default": null},
+              {"name": "sensors", "type": ["null", {"type": "array", "items": "int"}], "default": null},
+              {"name": "geoAltitude", "type": ["null", "double"], "default": null},
+              {"name": "squawk", "type": ["null", "string"], "default": null},
+              {"name": "spi", "type": ["null", "boolean"], "default": null},
+              {"name": "positionSource", "type": ["null", "int"], "default": null},
+              {"name": "category", "type": ["null", "int"], "default": null}
+            ]
+          }
+        }
+      ],
+      "default": null
+    }
+  ]
+}
