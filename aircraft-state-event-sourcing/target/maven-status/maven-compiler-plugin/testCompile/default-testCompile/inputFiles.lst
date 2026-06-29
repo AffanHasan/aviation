@@ -1,7 +1,0 @@
-/Users/ahasan/engineering-stuff/aviation-project/aircraft-state-event-sourcing/src/test/java/aviation/CucumberTest.java
-/Users/ahasan/engineering-stuff/aviation-project/aircraft-state-event-sourcing/src/test/java/aviation/bdd/steps/AircraftStateEventSourcingSteps.java
-/Users/ahasan/engineering-stuff/aviation-project/aircraft-state-event-sourcing/src/test/java/aviation/bdd/support/ActorStateAssertions.java
-/Users/ahasan/engineering-stuff/aviation-project/aircraft-state-event-sourcing/src/test/java/aviation/bdd/support/ActorSystemSupport.java
-/Users/ahasan/engineering-stuff/aviation-project/aircraft-state-event-sourcing/src/test/java/aviation/bdd/support/EventJournalAssertions.java
-/Users/ahasan/engineering-stuff/aviation-project/aircraft-state-event-sourcing/src/test/java/aviation/bdd/support/KafkaMessageProducer.java
-/Users/ahasan/engineering-stuff/aviation-project/aircraft-state-event-sourcing/src/test/java/aviation/bdd/support/TestcontainersSupport.java

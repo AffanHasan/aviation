@@ -79,9 +79,9 @@ graph TD
     end
 
     KAFKA -->|AircraftStatesManagerCommand.ProcessStateVector| USER
-    USER -->|AircraftCommand.ProcessStateVector| AC1
-    USER -->|AircraftCommand.ProcessStateVector| AC2
-    USER -->|AircraftCommand.ProcessStateVector| AC3
+    USER -->|AircraftStateCommand.ProcessStateVector| AC1
+    USER -->|AircraftStateCommand.ProcessStateVector| AC2
+    USER -->|AircraftStateCommand.ProcessStateVector| AC3
 
     subgraph "External Systems"
         KAFKATOPIC[(Kafka Topic<br/>aircraft.state.vectors)]
@@ -116,7 +116,7 @@ Kafka Topic: aircraft.state.vectors
 | /user              |
 +--------------------+
          |
-         | AircraftCommand.ProcessStateVector
+         | AircraftStateCommand.ProcessStateVector
          +---------+---------+---------+
                    |         |         |
                    v         v         v
@@ -224,7 +224,7 @@ aircraft-state-event-sourcing/
 ├── src/main/java/aviation/
 │   ├── Main.java
 │   ├── actor/
-│   │   ├── AircraftCommand.java
+│   │   ├── AircraftStateCommand.java
 │   │   ├── AircraftStateBehavior.java
 │   │   ├── AircraftStatesManagerBehavior.java
 │   │   ├── AircraftStatesManagerCommand.java

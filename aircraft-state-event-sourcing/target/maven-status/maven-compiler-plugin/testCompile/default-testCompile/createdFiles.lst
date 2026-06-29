@@ -1,8 +1,0 @@
-aviation/bdd/steps/AircraftStateEventSourcingSteps.class
-aviation/bdd/support/TestcontainersSupport.class
-aviation/bdd/support/KafkaMessageProducer.class
-aviation/bdd/support/TestcontainersSupport$DatabaseCredentials.class
-aviation/bdd/support/ActorStateAssertions.class
-aviation/bdd/support/ActorSystemSupport.class
-aviation/bdd/support/EventJournalAssertions.class
-aviation/CucumberTest.class

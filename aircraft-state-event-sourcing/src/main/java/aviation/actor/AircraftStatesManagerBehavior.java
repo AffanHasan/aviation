@@ -26,7 +26,7 @@ public class AircraftStatesManagerBehavior extends AbstractBehavior<AircraftStat
     private static final String ACTOR_NAME_PREFIX = "aircraft-";
     private static final String ICAO24_EMPTY = "";
 
-    private final Map<String, ActorRef<AircraftCommand>> aircraftActors = new HashMap<>();
+    private final Map<String, ActorRef<AircraftStateCommand>> aircraftActors = new HashMap<>();
 
     private AircraftStatesManagerBehavior(final ActorContext<AircraftStatesManagerCommand> context) {
         super(context);
@@ -46,18 +46,18 @@ public class AircraftStatesManagerBehavior extends AbstractBehavior<AircraftStat
         if (icao24 == null || ICAO24_EMPTY.equals(icao24.trim())) {
             return this;
         }
-        final ActorRef<AircraftCommand> actor = aircraftActors.computeIfAbsent(icao24,
+        final ActorRef<AircraftStateCommand> actor = aircraftActors.computeIfAbsent(icao24,
                 id -> getContext().spawn(
                         AircraftStateBehavior.create(PersistenceId.ofUniqueId(PERSISTENCE_ID_PREFIX + id)),
                         sanitizeActorName(ACTOR_NAME_PREFIX + id)));
-        actor.tell(new AircraftCommand.ProcessStateVector(sv));
+        actor.tell(new AircraftStateCommand.ProcessStateVector(sv));
         return this;
     }
 
     private Behavior<AircraftStatesManagerCommand> onGetAircraftState(final AircraftStatesManagerCommand.GetAircraftState cmd) {
-        final ActorRef<AircraftCommand> actor = aircraftActors.get(cmd.icao24());
+        final ActorRef<AircraftStateCommand> actor = aircraftActors.get(cmd.icao24());
         if (actor != null) {
-            actor.tell(new AircraftCommand.GetAircraftState(cmd.replyTo()));
+            actor.tell(new AircraftStateCommand.GetAircraftState(cmd.replyTo()));
         } else {
             cmd.replyTo().tell(Optional.empty());
         }

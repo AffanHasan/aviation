@@ -15,9 +15,9 @@ import aviation.domain.AircraftAttributes;
 import aviation.domain.AircraftState;
 import aviation.domain.AircraftStateEvent;
 
-public class AircraftStateBehavior extends EventSourcedBehavior<AircraftCommand, AircraftStateEvent, AircraftState> {
+public class AircraftStateBehavior extends EventSourcedBehavior<AircraftStateCommand, AircraftStateEvent, AircraftState> {
 
-    public static Behavior<AircraftCommand> create(final PersistenceId persistenceId) {
+    public static Behavior<AircraftStateCommand> create(final PersistenceId persistenceId) {
         return new AircraftStateBehavior(persistenceId);
     }
 
@@ -31,11 +31,11 @@ public class AircraftStateBehavior extends EventSourcedBehavior<AircraftCommand,
     }
 
     @Override
-    public CommandHandler<AircraftCommand, AircraftStateEvent, AircraftState> commandHandler() {
+    public CommandHandler<AircraftStateCommand, AircraftStateEvent, AircraftState> commandHandler() {
         return newCommandHandlerBuilder()
                 .forAnyState()
-                .onCommand(AircraftCommand.ProcessStateVector.class, this::onProcessStateVector)
-                .onCommand(AircraftCommand.GetAircraftState.class, this::onGetAircraftState)
+                .onCommand(AircraftStateCommand.ProcessStateVector.class, this::onProcessStateVector)
+                .onCommand(AircraftStateCommand.GetAircraftState.class, this::onGetAircraftState)
                 .build();
     }
 
@@ -49,7 +49,7 @@ public class AircraftStateBehavior extends EventSourcedBehavior<AircraftCommand,
 
     private Effect<AircraftStateEvent, AircraftState> onProcessStateVector(
             final AircraftState state,
-            final AircraftCommand.ProcessStateVector cmd) {
+            final AircraftStateCommand.ProcessStateVector cmd) {
         final StateVectorAvro sv = cmd.stateVector();
         final AircraftAttributes attributes = new AircraftAttributes(
                 sv.getIcao24().toString(),
@@ -76,7 +76,7 @@ public class AircraftStateBehavior extends EventSourcedBehavior<AircraftCommand,
 
     private Effect<AircraftStateEvent, AircraftState> onGetAircraftState(
             final AircraftState state,
-            final AircraftCommand.GetAircraftState cmd) {
+            final AircraftStateCommand.GetAircraftState cmd) {
         final Optional<AircraftState> reply = Optional.ofNullable(
                 state.attributes() != null && state.attributes().icao24() != null ? state : null);
         return Effect().reply(cmd.replyTo(), reply);
